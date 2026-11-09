@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome | Vanguard Studio</title><meta name="description" content="Welcome to Vanguard Studio, video editing by Prerit (Prex).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23e5484d'/%3E%3Cpath d='M6 8l10 18 10-18h-5l-5 9-5-9z' fill='%23fff'/%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("vanguard-theme");if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/extras.css">
+<style>
+.welcome{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:32px 20px}
+.welcome-box{width:100%;max-width:640px;text-align:center}
+.welcome .brand{justify-content:center;margin-bottom:36px}
+.visit{margin:0 0 14px;font-size:.9rem;color:var(--muted)}
+.welcome .lead{margin:18px auto 0;max-width:46ch}
+.pick{border:0;padding:0;margin:40px 0 0}
+.pick legend{font-weight:600;margin:0 auto 6px;padding:0}
+.pick p{font-size:.9rem;margin-bottom:16px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.opt{position:relative;display:block;padding:16px 10px;border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);cursor:pointer;transition:border-color .2s,background .2s}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt strong{display:block;font-size:1rem}.opt span{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+.enter{margin-top:30px}
+@media(max-width:520px){.opts{grid-template-columns:1fr}}.opts.two{grid-template-columns:repeat(2,1fr)}
+</style></head><body>
+<main class="welcome"><div class="welcome-box">
+<a class="brand" href="home.html" aria-label="Vanguard Studio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5l8 15 8-15h-4l-4 8-4-8z" fill="#fff"/></svg></span><span>Vanguard<span class="brand-dot">.</span></span></a>
+<p class="visit" id="visit" aria-live="polite"></p>
+<h1 class="display" id="wTitle">Welcome to Vanguard Studio.</h1>
+<p class="lead" id="wSub">Glad you're here. Take a look around and see how I cut stories.</p>
+<fieldset class="pick"><legend>How do you want to view the site?</legend><p>You can change this anytime with the sun/moon button.</p>
+<div class="opts">
+<label class="opt"><input type="radio" name="theme" value="system" checked><strong>System</strong><span>Matches your device</span></label>
+<label class="opt"><input type="radio" name="theme" value="dark"><strong>Dark</strong><span>Easy on the eyes</span></label>
+<label class="opt"><input type="radio" name="theme" value="light"><strong>Light</strong><span>Bright and clean</span></label>
+</div></fieldset>
+<div class="name-field"><label for="wName">What should I call you?</label><input id="wName" type="text" autocomplete="given-name" maxlength="40" placeholder="Your name"></div>
+<a class="btn btn-primary btn-lg enter" id="enter" data-nosound href="home.html">Enter the site <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div></main>
+<button class="icon-btn" style="position:fixed;top:16px;right:16px;z-index:5" id="soundToggle" type="button" aria-label="Toggle sound" aria-pressed="true"><svg class="snd-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg><svg class="snd-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></button><script src="assets/js/config.js"></script><script src="assets/js/site-config.js"></script><script src="assets/js/sound.js"></script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var n=1,last=null,K="vanguard-visits",L="vanguard-last",S="vanguard-counted";
+try{
+  n=parseInt(localStorage.getItem(K),10)||0;last=localStorage.getItem(L);
+  if(!sessionStorage.getItem(S)){n+=1;localStorage.setItem(K,n);localStorage.setItem(L,new Date().toISOString());sessionStorage.setItem(S,"1")}
+  else if(n<1)n=1;
+}catch(e){n=1}
+var m;
+if(n<=1)m=["Welcome to Vanguard Studio.","Glad you're here. Take a look around and see how I cut stories.","Enter the site"];
+else if(n===2)m=["Welcome back.","Good to see you again. Ready to pick up where you left off?","Continue"];
+else if(n<=4)m=["Look who's back.","You keep coming back, so something here must be working. If you have a video in mind, let's talk.","Let's go"];
+else if(n<=9)m=["Okay, you're basically family now.","Time to stop window shopping and cut something together. Send me your footage.","Take me in"];
+else m=["Welcome home, regular.","You clearly have good taste. Message me and let's make something great.","Come on in"];
+var ss=window.siteSub||function(x){return x};var nm="";try{nm=localStorage.getItem("vanguard-name")||""}catch(e){}
+var wn=$("wName");wn.value=nm;
+if(nm)m[0]=m[0].replace(/\.$/,", "+nm+".");
+$("wTitle").textContent=ss(m[0]);$("wSub").textContent=ss(m[1]);
+$("enter").firstChild.textContent=m[2]+" ";
+var v="Visit number "+n;
+if(n>1&&last){try{v+=" · Last visit "+new Date(last).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}catch(e){}}
+$("visit").textContent=v;
+function apply(p){
+  var t=p;if(p==="system")t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
+  document.documentElement.setAttribute("data-theme",t);
+  try{if(p==="system")localStorage.removeItem("vanguard-theme");else localStorage.setItem("vanguard-theme",p)}catch(e){}
+}
+var saved=null;try{saved=localStorage.getItem("vanguard-theme")}catch(e){}
+var cur=(saved==="dark"||saved==="light")?saved:"system";
+var sl=document.querySelector('input[value="system"] ~ span');if(sl){sl.textContent="Your device is on "+(matchMedia("(prefers-color-scheme: light)").matches?"Light":"Dark")}
+document.querySelectorAll('input[name="theme"]').forEach(function(r){
+  r.checked=(r.value===cur);
+  r.addEventListener("change",function(){apply(r.value)});
+});
+wn.addEventListener("keydown",function(e){if(e.key==="Enter")$("enter").click()});
+$("enter").addEventListener("click",function(e){
+  try{var q=wn.value.trim();if(q)localStorage.setItem("vanguard-name",q.slice(0,40))}catch(x){}
+  if(!window.VSound||!VSound.isOn())return;
+  e.preventDefault();
+  VSound.play(n<=1?"welcome":n<10?"back":"fanfare");
+  setTimeout(function(){location.href="home.html"},950);
+});
+})();
+</script></body></html>
